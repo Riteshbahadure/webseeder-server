@@ -3,9 +3,6 @@ const User = require('../model/User');
 
 exports.authMiddleware = async (req, res, next) => {
   const { user } = req.cookies;
-
-  if (!user) return res.status(401).json({ message: "No token, authorization denied" });
-
   try {
     const decoded = jwt.verify(user, process.env.JWT_KEY);
     const userFromDb = await User.findById(decoded.userId);
