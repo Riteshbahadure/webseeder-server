@@ -3,7 +3,7 @@ const User = require('../model/User');
 
 exports.authMiddleware = async (req, res, next) => {
   const { user } = req.cookies;
-  // console.log("-------------", process.env.JWT_KEY);
+  console.log("-------------", process.env.JWT_KEY);
   // console.log("userr", user);
   if (process.env.JWT_KEY) {
 
